@@ -1,8 +1,14 @@
-# Modern Portfolio Website
+# Ibrahim Warsame - Portfolio
 
-A beautiful, responsive portfolio website built with HTML, CSS, and JavaScript. Features a modern design with smooth animations, interactive elements, and mobile-first responsive layout.
+Welcome to my personal portfolio website! I'm a Software Engineer and Computer Science student passionate about creating innovative solutions through code.
 
-## 🚀 Features
+## 👨‍💻 About Me
+
+I'm currently pursuing my BSc. in Computer Science with a specialization in Artificial Intelligence & Machine Learning at IU International University of Applied Sciences, Germany. I have hands-on experience in full-stack web development and am passionate about AI/ML, problem-solving, and building impactful software.
+
+## 🚀 What I Built
+
+This portfolio showcases my skills, projects, and experience. Here's what I included:
 
 - **Responsive Design**: Works perfectly on all devices (desktop, tablet, mobile)
 - **Modern UI/UX**: Clean, professional design with smooth animations
@@ -14,232 +20,111 @@ A beautiful, responsive portfolio website built with HTML, CSS, and JavaScript. 
 - **Particle Effects**: Animated background particles
 - **SEO Optimized**: Proper meta tags and semantic HTML
 
-## 📁 File Structure
+## 🛠️ Technologies I Used
+
+- **HTML5**: Semantic structure and accessibility
+- **CSS3**: Modern styling with Flexbox, Grid, and animations
+- **JavaScript**: Interactive functionality and dynamic content
+- **Font Awesome**: Icons for better visual appeal
+- **Google Fonts**: Inter font family for clean typography
+
+## 📁 Project Structure
 
 ```
 portfolio/
-├── index.html          # Main HTML file
+├── index.html          # Main HTML file with all sections
 ├── styles.css          # CSS styles and animations
 ├── script.js           # JavaScript functionality
 └── README.md           # This file
 ```
 
-## 🛠️ Setup Instructions
+## 🎯 My Skills & Experience
 
-1. **Clone or Download**: Download all files to your local machine
-2. **Open in Browser**: Simply open `index.html` in your web browser
-3. **Customize**: Edit the content in `index.html` to personalize your portfolio
-4. **Deploy**: Upload files to your web hosting service
+### Frontend Development
+- HTML/CSS, JavaScript, React.js, Next.js, Tailwind CSS
 
-## 🎨 Customization Guide
+### Backend & AI/ML
+- Node.js, Python, MongoDB, Express.js, Machine Learning
 
-### Personal Information
-Edit the following sections in `index.html`:
+### Tools & Others
+- Git, Docker, Java, PostgreSQL
 
-#### Hero Section
-```html
-<h1 class="hero-title">
-    Hi, I'm <span class="highlight">Your Name</span>
-</h1>
-<p class="hero-subtitle">Full Stack Developer & Creative Problem Solver</p>
-```
+## 💼 My Experience
 
-#### About Section
-```html
-<p>I'm a passionate developer with a strong foundation...</p>
-```
+- **Web Development Intern (Team Lead)** at CodeAlpha (May 2025 – Aug 2025)
+- **Software Developer Intern** at InfoTech (July 2025 – Aug 2025)
+- **Freelance Software Engineer** on Fiverr (2024 – Present)
 
-#### Contact Information
-```html
-<div class="contact-item">
-    <i class="fas fa-envelope"></i>
-    <span>your.email@example.com</span>
-</div>
-```
+## 🏆 Featured Projects
 
-### Skills & Technologies
-Update the skills section with your own technologies:
+1. **Brain Tumor Segmentation** - Deep learning project using YOLOv11
+2. **AI Developer Chatbot** - NLP-powered code debugging assistant
+3. **Intelligent Expense Tracker** - ML-powered financial dashboard
 
-```html
-<div class="skill-item">
-    <i class="fab fa-react"></i>
-    <span>React</span>
-</div>
-```
+## 🎓 Education & Certifications
 
-### Projects
-Replace the sample projects with your own:
+- **BSc. Computer Science** – Artificial Intelligence & Machine Learning
+  - IU International University of Applied Sciences, Germany
+  - Expected Graduation: Oct 2025
 
-```html
-<div class="project-card">
-    <div class="project-content">
-        <h3>Your Project Name</h3>
-        <p>Project description...</p>
-        <div class="project-tech">
-            <span>Technology 1</span>
-            <span>Technology 2</span>
-        </div>
-        <div class="project-links">
-            <a href="your-github-link" class="project-link">
-                <i class="fab fa-github"></i> Code
-            </a>
-            <a href="your-live-link" class="project-link">
-                <i class="fas fa-external-link-alt"></i> Live
-            </a>
-        </div>
-    </div>
-</div>
-```
+### Certifications
+- Microsoft Learn Student Ambassador – Member
+- Azure AI Engineer – Associate
+- Aspire Leadership Program – Aspire Institute (Harvard-backed)
+- ALX Professional Foundation Graduate
+- Microsoft AI Skills Challenge – Guinness World Record Holder
 
-### Social Links
-Update your social media links:
+## 📞 Get In Touch
 
-```html
-<div class="social-links">
-    <a href="your-github-url" class="social-link">
-        <i class="fab fa-github"></i>
-    </a>
-    <a href="your-linkedin-url" class="social-link">
-        <i class="fab fa-linkedin"></i>
-    </a>
-</div>
-```
+I'm always interested in new opportunities and exciting projects. Feel free to reach out:
 
-## 🎯 Color Scheme
+- **Email**: ibrahimali.wr@gmail.com
+- **Phone**: +254 722 147385
+- **Location**: Nairobi, Kenya
+- **LinkedIn**: [linkedin.com/in/ibrahim-warsame](https://linkedin.com/in/ibrahim-warsame)
+- **GitHub**: [github.com/ibrahim-warsame](https://github.com/ibrahim-warsame)
 
-The current color scheme uses:
-- **Primary Blue**: `#2563eb`
-- **Secondary Purple**: `#7c3aed`
-- **Accent Yellow**: `#fbbf24`
-- **Gradient**: `#667eea` to `#764ba2`
+## 🚀 How to Run This Portfolio
 
-To change colors, edit the CSS variables in `styles.css`:
-
-```css
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #7c3aed;
-    --accent-color: #fbbf24;
-}
-```
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🚀 Deployment Options
-
-### GitHub Pages
-1. Create a new repository on GitHub
-2. Upload all files to the repository
-3. Go to Settings > Pages
-4. Select source branch (usually `main`)
-5. Your site will be available at `https://username.github.io/repository-name`
-
-### Netlify
-1. Drag and drop your project folder to [Netlify](https://netlify.com)
-2. Your site will be deployed instantly
-3. Custom domain can be added in settings
-
-### Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in your project directory
-3. Follow the prompts to deploy
-
-### Traditional Hosting
-Upload all files to your web hosting provider's public_html or www directory.
-
-## 🔧 Advanced Customization
-
-### Adding New Sections
-1. Add HTML structure in `index.html`
-2. Add corresponding CSS in `styles.css`
-3. Add any JavaScript functionality in `script.js`
-
-### Custom Animations
-Add new keyframes in `styles.css`:
-
-```css
-@keyframes yourAnimation {
-    0% { /* initial state */ }
-    100% { /* final state */ }
-}
-```
-
-### Form Integration
-To make the contact form functional:
-
-1. **EmailJS** (Recommended for beginners):
-   ```javascript
-   // Add EmailJS script
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-   
-   // Initialize and send email
-   emailjs.send('service_id', 'template_id', formData);
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ibrahim-warsame/portfolio.git
    ```
 
-2. **Netlify Forms**:
-   Add `netlify` attribute to your form:
-   ```html
-   <form class="contact-form" netlify>
-   ```
+2. **Open in browser**:
+   - Simply open `index.html` in your web browser
+   - Or use a local server for better development experience
 
-3. **Custom Backend**:
-   Replace the form submission logic in `script.js` with your API calls.
+3. **Live version**: Visit [ibrahim-warsame.github.io/portfolio](https://ibrahim-warsame.github.io/portfolio)
 
-## 📊 Performance Optimization
+## 🎨 Customization
 
-- Images are optimized and use modern formats
-- CSS and JavaScript are minified for production
-- Font Awesome icons are loaded from CDN
-- Google Fonts are loaded efficiently
+If you want to use this as a template for your own portfolio:
 
-## 🔍 SEO Features
+1. **Update personal information** in `index.html`
+2. **Modify the skills section** to match your expertise
+3. **Replace projects** with your own work
+4. **Update contact information** and social links
+5. **Customize colors** in `styles.css` if desired
 
-- Semantic HTML structure
-- Meta tags for social sharing
-- Open Graph tags
-- Proper heading hierarchy
-- Alt text for images (when added)
+## 📱 Browser Support
 
-## 🐛 Troubleshooting
+This portfolio works on all modern browsers:
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
 
-### Common Issues
+## 🤝 Contributing
 
-1. **Font Awesome icons not showing**:
-   - Check internet connection
-   - Verify CDN link is working
-
-2. **Animations not working**:
-   - Ensure JavaScript is enabled
-   - Check browser console for errors
-
-3. **Mobile menu not working**:
-   - Verify JavaScript file is loaded
-   - Check for CSS conflicts
-
-### Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions for improvements, I'd love to hear from you!
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
-
-Feel free to fork this project and submit pull requests for improvements.
-
-## 📞 Support
-
-If you need help customizing or deploying your portfolio, feel free to reach out!
-
 ---
 
-**Happy coding! 🎉** 
+**Thanks for visiting my portfolio!** 👋
+
+Feel free to reach out if you'd like to collaborate on a project or just want to say hello! 

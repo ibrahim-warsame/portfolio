@@ -304,6 +304,10 @@ section {
     position: relative;
 }
 
+.projects .section-title {
+    color: white;
+}
+
 .section-title::after {
     content: '';
     position: absolute;
@@ -461,7 +465,7 @@ section {
 
 /* Projects Section */
 .projects {
-    background: #f8fafc;
+    background: #800000;
 }
 
 .projects-grid {

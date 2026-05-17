@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibrahim Warsame — AI Engineer & Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --dark:#0d0d0d;
+  --dark2:#161616;
+  --dark3:#1e1e1e;
+  --light:#f5f3ef;
+  --light2:#edeae4;
+  --white:#ffffff;
+  --gold:#c8922a;
+  --gold2:#e8ab3a;
+  --text-d:#edebe6;
+  --dim-d:#9c9690;
+  --text-l:#141210;
+  --dim-l:#5a5450;
+  --nav-h:64px;
+}
+body{font-family:'DM Sans',sans-serif;line-height:1.7;overflow-x:hidden;color:var(--text-d)}
+
+/* ── SCROLL PROGRESS ── */
+#prog{position:fixed;top:0;left:0;height:3px;z-index:400;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width .1s}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+nav{
+  position:fixed;top:3px;left:0;right:0;height:var(--nav-h);
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;padding:0 4%;z-index:300;
+  background:rgba(13,13,13,.97);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(200,146,42,.13);
+}
+.nav-logo{
+  font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;
+  color:var(--text-d);text-decoration:none;white-space:nowrap;
+}
+.nav-logo span{color:var(--gold)}
+
+.nav-links{
+  display:flex;align-items:center;justify-content:center;
+  gap:1.8rem;list-style:none;
+}
+.nav-links a{
+  font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dim-d);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--text-d)}
+
+.nav-socials{
+  display:flex;align-items:center;gap:.85rem;
+}
+.nav-socials a{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:6px;
+  color:var(--dim-d);text-decoration:none;
+  border:1px solid rgba(200,146,42,.15);
+  transition:color .2s,border-color .2s,background .2s;
+}
+.nav-socials a:hover{color:var(--gold2);border-color:rgba(200,146,42,.4);background:rgba(200,146,42,.07)}
+.nav-socials svg{width:15px;height:15px;fill:currentColor}
+
+/* ══════════════════════════
+   HERO — dark
+══════════════════════════ */
+#hero{
+  min-height:100vh;background:var(--dark);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  padding:calc(var(--nav-h) + 4rem) 5% 4rem;
+  position:relative;overflow:hidden;
+}
+#hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 50% 50%, rgba(200,146,42,.06), transparent);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(200,146,42,.1);border:1px solid rgba(200,146,42,.3);
+  color:var(--gold2);padding:.4rem 1.1rem;border-radius:100px;
+  font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;margin-bottom:1.75rem;
+  transition:background .2s;animation:fadeUp .6s ease both .1s;
+}
+.hero-badge:hover{background:rgba(200,146,42,.18)}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;
+  animation:fadeUp .6s ease both .2s;
+}
+.hero-h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;
+  line-height:1.05;letter-spacing:-.02em;color:#ffffff;margin-bottom:.5rem;
+  animation:fadeUp .6s ease both .35s;
+}
+.hero-h1 em{font-style:italic;color:var(--gold2);display:block}
+.hero-sub{
+  font-size:.95rem;color:var(--dim-d);margin-bottom:1.75rem;letter-spacing:.02em;
+  animation:fadeUp .6s ease both .45s;
+}
+.hero-desc{
+  font-size:1rem;line-height:1.8;color:#cbc5bc;
+  max-width:580px;margin:0 auto 0;
+  animation:fadeUp .6s ease both .55s;
+}
+.hero-desc strong{color:#fff;font-weight:600}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:3rem;
+  margin-top:4rem;padding-top:2rem;
+  border-top:1px solid rgba(237,235,230,.09);flex-wrap:wrap;
+  animation:fadeUp .6s ease both .65s;
+}
+.h-stat-n{
+  font-family:'DM Serif Display',serif;font-size:2.5rem;
+  color:var(--gold2);line-height:1;margin-bottom:.25rem;
+}
+.h-stat-l{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim-d);font-weight:500}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ══════════════════════════
+   VOLUNTEERING
+══════════════════════════ */
+.vol-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.vol-card{
+  background:#fff;border:1px solid #e2ddd6;border-radius:10px;
+  padding:2rem;display:flex;gap:1.25rem;align-items:flex-start;
+  transition:box-shadow .2s,transform .2s;
+}
+.vol-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);transform:translateY(-2px)}
+.vol-icon{
+  flex-shrink:0;width:44px;height:44px;border-radius:8px;
+  background:rgba(200,146,42,.08);border:1px solid rgba(200,146,42,.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.vol-icon svg{width:22px;height:22px;color:var(--gold)}
+.vol-org{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.vol-role{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--text-l);margin-bottom:.75rem}
+.vol-desc{font-size:.9rem;line-height:1.75;color:#4a4540}
+.vol-desc strong{color:var(--text-l)}
+@media(max-width:680px){.vol-grid{grid-template-columns:1fr}}
+
+/* ══════════════════════════
+   SECTION SCAFFOLD
+══════════════════════════ */
+.sec{padding:6rem 4%}
+.sec-inner{max-width:1080px;margin:0 auto}
+.sec-label{
+  display:flex;align-items:center;gap:.65rem;
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;
+  letter-spacing:.22em;text-transform:uppercase;margin-bottom:.9rem;
+}
+.sec-label::before{content:'';width:22px;height:1.5px;background:currentColor}
+.sec-h{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:400;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:3rem;
+}
+
+.sec-dark{background:var(--dark)}
+.sec-dark .sec-label{color:var(--gold)}
+.sec-dark .sec-h{color:#fff}
+.sec-dark .sec-h em{color:var(--gold2);font-style:italic}
+
+.sec-light{background:var(--light)}
+.sec-light .sec-label{color:var(--gold)}
+.sec-light .sec-h{color:var(--text-l)}
+.sec-light .sec-h em{color:var(--gold);font-style:italic}
+
+.sec-white{background:var(--white)}
+.sec-white .sec-label{color:var(--gold)}
+.sec-white .sec-h{color:var(--text-l)}
+.sec-white .sec-h em{color:var(--gold);font-style:italic}
+
+/* ══════════════════════════
+   ABOUT — light
+══════════════════════════ */
+.about-grid{
+  display:grid;grid-template-columns:300px 1fr;
+  gap:4rem;align-items:flex-start;
+}
+.about-photo{
+  width:100%;border-radius:8px;
+  box-shadow:0 8px 40px rgba(0,0,0,.14);
+  display:block;object-fit:cover;aspect-ratio:3/4;
+  border:2px solid rgba(200,146,42,.18);
+}
+.about-text h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.55rem;font-weight:400;color:var(--text-l);
+  line-height:1.25;margin-bottom:1.25rem;letter-spacing:-.01em;
+}
+.about-text h3 em{font-style:italic;color:var(--gold)}
+.about-p{font-size:.97rem;line-height:1.85;color:#3a3630;margin-bottom:1rem}
+.about-p strong{color:var(--text-l);font-weight:600}
+.about-p:last-child{margin-bottom:0}
+
+.about-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.about-chip{
+  font-size:.72rem;font-weight:600;padding:.3rem .85rem;border-radius:4px;
+  background:rgba(200,146,42,.1);color:#a06818;
+  border:1px solid rgba(200,146,42,.22);letter-spacing:.03em;
+}
+
+/* ══════════════════════════
+   SKILLS — dark
+══════════════════════════ */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.cat-label{font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.srow{margin-bottom:1.1rem}
+.smeta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem}
+.sname{font-size:.88rem;font-weight:500;color:#fff}
+.spct{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--gold2);font-weight:600}
+.bar-bg{height:4px;background:rgba(255,255,255,.08);border-radius:99px}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem}
+.tag{padding:.26rem .72rem;border-radius:4px;font-size:.7rem;font-weight:500;background:rgba(200,146,42,.09);color:#e0c98a;border:1px solid rgba(200,146,42,.18)}
+
+/* ══════════════════════════
+   EXPERIENCE — white
+══════════════════════════ */
+.exp-item{
+  display:grid;grid-template-columns:185px 1fr;gap:2.5rem;
+  padding:2rem 0;border-bottom:1px solid #ece7df;
+}
+.exp-item:last-child{border-bottom:none}
+.exp-meta{padding-right:2rem;border-right:1px solid #ece7df}
+.exp-period{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.3rem;font-weight:600}
+.exp-company{font-size:.85rem;font-weight:700;color:var(--text-l);margin-bottom:.12rem}
+.exp-type{font-size:.73rem;color:var(--dim-l);font-style:italic}
+.exp-role{font-size:1.05rem;font-weight:700;color:var(--text-l);margin-bottom:.7rem;line-height:1.2}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.48rem}
+.exp-bullets li{font-size:.9rem;color:#3a3630;line-height:1.65;padding-left:1.1rem;position:relative}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:.68rem;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.metric{display:inline-block;background:rgba(22,163,74,.1);color:#16a34a;border:1px solid rgba(22,163,74,.22);border-radius:3px;padding:.02rem .38rem;font-size:.69rem;font-family:'JetBrains Mono',monospace;font-weight:600;margin-left:.2rem}
+
+/* ══════════════════════════
+   IMPACT STRIP — gold
+══════════════════════════ */
+.impact-strip{background:linear-gradient(135deg,#a06818,var(--gold),var(--gold2));padding:3.5rem 4%}
+.impact-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.impact-n{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--dark);line-height:1;margin-bottom:.3rem}
+.impact-l{font-size:.67rem;font-weight:700;color:rgba(13,13,13,.6);letter-spacing:.1em;text-transform:uppercase}
+
+/* ══════════════════════════
+   PROJECTS — light
+══════════════════════════ */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem}
+.proj-card{
+  background:var(--white);border-radius:8px;border:1px solid #e2ddd6;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);display:flex;flex-direction:column;
+  transition:transform .22s,box-shadow .22s;
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.09)}
+.proj-top{padding:1.75rem 1.75rem 1rem;border-bottom:2px solid var(--gold)}
+.proj-num{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--gold);letter-spacing:.18em;margin-bottom:.55rem}
+.proj-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text-l);line-height:1.25;margin-bottom:.55rem}
+.proj-tech{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.55rem}
+.proj-tag{font-size:.62rem;padding:.16rem .52rem;border-radius:3px;background:rgba(200,146,42,.1);color:#a06818;font-weight:600;border:1px solid rgba(200,146,42,.2)}
+.proj-body{padding:1.1rem 1.75rem 1.5rem;flex:1}
+.proj-bullets{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.proj-bullets li{font-size:.83rem;color:#4a4540;line-height:1.6;padding-left:1rem;position:relative}
+.proj-bullets li::before{content:'';position:absolute;left:0;top:.62rem;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.proj-link{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 1.75rem 1.5rem;
+  font-size:.74rem;font-weight:600;color:var(--gold);text-decoration:none;
+  border-bottom:1px solid rgba(200,146,42,.3);padding-bottom:.1rem;
+  transition:color .2s;width:fit-content;
+}
+.proj-link:hover{color:var(--gold2)}
+
+/* ══════════════════════════
+   EDUCATION — dark
+══════════════════════════ */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.edu-card{padding:1.75rem 2rem;border-radius:7px;border:1px solid rgba(200,146,42,.13);background:rgba(255,255,255,.025);transition:border-color .2s}
+.edu-card:hover{border-color:rgba(200,146,42,.32)}
+.edu-year{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--gold);letter-spacing:.14em;margin-bottom:.5rem}
+.edu-deg{font-size:.98rem;font-weight:600;color:#fff;margin-bottom:.22rem;line-height:1.3}
+.edu-school{font-size:.82rem;color:var(--dim-d);margin-bottom:.55rem}
+.edu-modules{list-style:none;display:flex;flex-direction:column;gap:.28rem}
+.edu-modules li{font-size:.78rem;color:var(--dim-d);padding-left:.9rem;position:relative}
+.edu-modules li::before{content:'';position:absolute;left:0;top:.55rem;width:3px;height:3px;border-radius:50%;background:var(--gold)}
+
+/* ══════════════════════════
+   CERTIFICATIONS — white
+══════════════════════════ */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.cert-card{padding:1.1rem 1.25rem;border-radius:6px;background:var(--light);border:1px solid #e2ddd6;transition:box-shadow .2s,transform .2s}
+.cert-card:hover{box-shadow:0 5px 18px rgba(0,0,0,.07);transform:translateY(-2px)}
+.cert-name{font-size:.82rem;font-weight:600;color:var(--text-l);line-height:1.3;margin-bottom:.15rem}
+.cert-org{font-size:.68rem;color:var(--dim-l)}
+
+/* ══════════════════════════
+   AWARDS — dark
+══════════════════════════ */
+.gwr-card{
+  display:grid;grid-template-columns:auto 1fr;gap:2.5rem;
+  background:rgba(200,146,42,.07);border:1px solid rgba(200,146,42,.25);
+  border-left:4px solid var(--gold);border-radius:7px;
+  padding:2.25rem;align-items:center;margin-bottom:1.75rem;
+}
+.gwr-label{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--gold);font-weight:400;line-height:1}
+.gwr-h{font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;margin-bottom:.4rem}
+.gwr-p{font-size:.9rem;color:var(--dim-d);line-height:1.7}
+.gwr-p strong{color:#fff}
+.awards-list{display:flex;flex-direction:column;gap:.8rem}
+.award-item{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.35rem;border-radius:6px;background:rgba(255,255,255,.025);border:1px solid rgba(200,146,42,.1)}
+.award-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.52rem}
+.award-title{font-weight:600;color:#fff;font-size:.87rem;margin-bottom:.12rem}
+.award-org{font-size:.73rem;color:var(--dim-d)}
+
+/* ══════════════════════════
+   CONTACT — light
+══════════════════════════ */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.contact-intro{font-size:.97rem;color:var(--dim-l);line-height:1.8;margin-bottom:1.75rem}
+.contact-links{display:flex;flex-direction:column;gap:.65rem}
+.contact-link{
+  display:flex;align-items:center;gap:.85rem;
+  font-size:.88rem;font-weight:500;color:var(--text-l);text-decoration:none;
+  padding:.82rem 1.1rem;border-radius:6px;
+  border:1.5px solid #ddd8d0;background:var(--white);
+  transition:border-color .2s,box-shadow .2s;
+}
+.contact-link:hover{border-color:var(--gold);box-shadow:0 3px 12px rgba(200,146,42,.1)}
+.cl-icon{width:32px;height:32px;border-radius:4px;background:rgba(200,146,42,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cl-icon svg{width:15px;height:15px;fill:var(--gold)}
+.cl-lbl{font-size:.63rem;color:var(--dim-l);display:block;font-weight:400}
+.cform{display:flex;flex-direction:column;gap:.85rem}
+.cform input,.cform textarea{
+  width:100%;padding:.82rem 1rem;border-radius:5px;
+  border:1.5px solid #ddd8d0;background:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text-l);
+  outline:none;transition:border-color .2s;resize:vertical;
+}
+.cform input:focus,.cform textarea:focus{border-color:var(--gold)}
+.cform textarea{min-height:120px}
+.cform button{
+  background:var(--gold);color:var(--dark);padding:.85rem;
+  border:none;border-radius:5px;font-family:'DM Sans',sans-serif;
+  font-weight:700;font-size:.9rem;cursor:pointer;
+  transition:background .2s,transform .12s;letter-spacing:.04em;
+}
+.cform button:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer{
+  background:var(--dark2);border-top:1px solid rgba(200,146,42,.12);
+  padding:1.75rem 4%;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:.95rem;color:#fff}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:.72rem;color:var(--dim-d)}
+.footer-links{display:flex;gap:1.25rem}
+.footer-links a{font-size:.72rem;color:var(--dim-d);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:240px 1fr;gap:3rem}
+  .skills-grid{grid-template-columns:1fr;gap:2.5rem}
+  .projects-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:1fr;gap:.5rem}
+  .exp-meta{border-right:none;padding-right:0;border-bottom:1px solid #ece7df;padding-bottom:.7rem}
+  .impact-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{grid-template-columns:auto 1fr auto}
+  .nav-links{display:none}
+  #hero{padding:calc(var(--nav-h)+2.5rem) 5% 3rem}
+  .sec{padding:4rem 5%}
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{max-width:240px;margin:0 auto}
+  .edu-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .gwr-card{grid-template-columns:1fr;gap:1rem}
+  .contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">Ibrahim<span>.</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#volunteering">Volunteering</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-socials">
+    <!-- GitHub -->
+    <a href="https://github.com/ibrahim-warsame" target="_blank" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.7.115 2.5.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/ibrahim-warsame" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <!-- Email -->
+    <a href="mailto:ibrahimali.wr@gmail.com" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+    <!-- LeetCode -->
+    <a href="https://leetcode.com/u/ibrahim-warsame" target="_blank" title="LeetCode">
+      <svg viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.396c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.396a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+    </a>
+    <!-- Resume -->
+    <a href="resume.pdf" target="_blank" title="Resume" style="font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;letter-spacing:.08em;color:var(--gold);border-color:rgba(200,146,42,.35);padding:0 .65rem;width:auto;text-transform:uppercase;">CV</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <a class="hero-badge" href="#awards">
+    Guinness World Record Holder &nbsp;·&nbsp; Microsoft AI Learning Event
+  </a>
+  <div class="hero-eyebrow">Ibrahim Warsame &nbsp;·&nbsp; Nairobi, Kenya</div>
+  <h1 class="hero-h1">
+    AI Engineer &amp;<br><em>Software Developer</em>
+  </h1>
+  <p class="hero-sub">JavaScript &nbsp;·&nbsp; Python &nbsp;·&nbsp; React &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; AI &amp; Automation</p>
+  <p class="hero-desc">
+    I build <strong>intelligent systems and production-grade applications</strong> — from mortgage
+    document automation pipelines using OCR and RAG, to AI-driven healthcare workflows and
+    full-stack web platforms that deliver measurable results.
+  </p>
+  <div class="hero-stats">
+    <div>
+      <div class="h-stat-n">5</div>
+      <div class="h-stat-l">Work Experiences</div>
+    </div>
+    <div>
+      <div class="h-stat-n">15+</div>
+      <div class="h-stat-l">Projects</div>
+    </div>
+    <div>
+      <div class="h-stat-n">30+</div>
+      <div class="h-stat-l">Certifications</div>
+    </div>
+    <div>
+      <div class="h-stat-n">GWR</div>
+      <div class="h-stat-l">World Record Holder</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT (light) ══ -->
+<section id="about" class="sec sec-light">
+  <div class="sec-inner">
+    <div class="sec-label">About</div>
+    <h2 class="sec-h">The engineer behind<br>the <em>intelligence.</em></h2>
+    <div class="about-grid">
+      <div>
+        <img src="ibrahim.jpg" alt="Ibrahim Warsame" class="about-photo"/>
+      </div>
+      <div class="about-text">
+        <h3>Hi, I'm Ibrahim —<br>an <em>AI engineer</em> based in Nairobi.</h3>
+        <p class="about-p">
+          I'm an AI engineer and software developer with a background in Computer Science,
+          building intelligent systems and production-grade applications that solve real problems.
+          From OCR and RAG pipelines to AI-driven healthcare workflows and full-stack platforms —
+          I turn complex ideas into working products.
+        </p>
+        <p class="about-p">
+          I've worked across five industry roles — at <strong>DFX AI Systems, Extern, Yora Summit,
+          Prodigy InfoTech, and CodeAlpha</strong> — delivering AI automation, machine learning
+          integrations, and full-stack development with measurable results at every step.
+        </p>
+        <p class="about-p">
+          I hold <strong>30+ certifications</strong> from Microsoft, Amazon, Google, Meta, IBM,
+          and DeepLearning.AI, and I'm a Guinness World Record holder recognised at the
+          Microsoft AI Learning Event. I write clean, modular code built to scale.
+        </p>
+        <div class="about-chips">
+          <span class="about-chip">Python</span>
+          <span class="about-chip">JavaScript</span>
+          <span class="about-chip">React</span>
+          <span class="about-chip">Node.js</span>
+          <span class="about-chip">LlamaIndex</span>
+          <span class="about-chip">n8n</span>
+          <span class="about-chip">FastAPI</span>
+          <span class="about-chip">Docker</span>
+          <span class="about-chip">Azure AI</span>
+          <span class="about-chip">AWS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS (dark) ══ -->
+<section id="skills" class="sec sec-dark">
+  <div class="sec-inner">
+    <div class="sec-label">Technical Skills</div>
+    <h2 class="sec-h">What I <em>build with.</em></h2>
+    <div class="skills-grid">
+      <div>
+        <div class="cat-label">Proficiency</div>
+        <div class="srow"><div class="smeta"><span class="sname">JavaScript / TypeScript</span><span class="spct">88%</span></div><div class="bar-bg"><div class="bar-fill" data-w="88" style="width:88%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">Python</span><span class="spct">87%</span></div><div class="bar-bg"><div class="bar-fill" data-w="87" style="width:87%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">React &amp; Frontend</span><span class="spct">84%</span></div><div class="bar-bg"><div class="bar-fill" data-w="84" style="width:84%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">Node.js / Express</span><span class="spct">82%</span></div><div class="bar-bg"><div class="bar-fill" data-w="82" style="width:82%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">AI / ML Engineering</span><span class="spct">80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80" style="width:80%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">RAG &amp; LLM Pipelines</span><span class="spct">78%</span></div><div class="bar-bg"><div class="bar-fill" data-w="78" style="width:78%"></div></div></div>
+        <div class="srow"><div class="smeta"><span class="sname">Docker / CI-CD / Cloud</span><span class="spct">74%</span></div><div class="bar-bg"><div class="bar-fill" data-w="74" style="width:74%"></div></div></div>
+      </div>
+      <div>
+        <div style="margin-bottom:1.4rem">
+          <div class="cat-label">Languages</div>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL/MySQL</span><span class="tag">C#</span><span class="tag">HTML/CSS</span></div>
+        </div>
+        <div style="margin-bottom:1.4rem">
+          <div class="cat-label">Frameworks &amp; Tools</div>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">Docker</span><span class="tag">Nginx/Apache</span><span class="tag">Git &amp; GitHub</span><span class="tag">CI/CD</span><span class="tag">Linux CLI</span><span class="tag">Figma</span><span class="tag">Vercel</span><span class="tag">Netlify</span><span class="tag">Postman</span></div>
+        </div>
+        <div>
+          <div class="cat-label">AI / Libraries &amp; APIs</div>
+          <div class="tags"><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">LlamaIndex</span><span class="tag">OpenAI API</span><span class="tag">n8n</span><span class="tag">REST APIs</span><span class="tag">JWT Auth</span><span class="tag">M-Pesa API</span><span class="tag">Axios</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE (white) ══ -->
+<section id="experience" class="sec sec-white">
+  <div class="sec-inner">
+    <div class="sec-label">Work Experience</div>
+    <h2 class="sec-h">Where I've <em>made impact.</em></h2>
+    <div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2025 – Present</div>
+          <div class="exp-company">DFX AI Systems</div>
+          <div class="exp-type">AI Systems Associate</div>
+        </div>
+        <div>
+          <div class="exp-role">AI Systems Associate</div>
+          <ul class="exp-bullets">
+            <li>Contributed to the development and optimisation of <strong>core AI system components</strong>, integrating machine learning models into production workflows to enhance decision-making accuracy.</li>
+            <li>Designed and implemented <strong>AI-powered automation modules</strong> that improved data processing pipelines, reducing manual intervention and increasing system throughput.</li>
+            <li>Collaborated with the engineering team to refine <strong>model inference performance</strong>, conducting iterative testing and fine-tuning to improve prediction reliability and system robustness.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jan – Mar 2026</div>
+          <div class="exp-company">Extern</div>
+          <div class="exp-type">AI Engineer</div>
+        </div>
+        <div>
+          <div class="exp-role">AI Engineer</div>
+          <ul class="exp-bullets">
+            <li>Built an end-to-end <strong>mortgage document automation pipeline</strong> using OCR, classification, and RAG — converting large unstructured PDF blobs into structured machine-readable data.</li>
+            <li>Benchmarked <strong>Tesseract, PaddleOCR, and EasyOCR</strong> on complex financial documents, improving OCR accuracy and informing production-ready tool selection.<span class="metric">+35% accuracy</span></li>
+            <li>Developed a <strong>RAG pipeline with LlamaIndex</strong> and optimised chunking and metadata filtering, improving retrieval precision across large mortgage document datasets.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Sep – Nov 2025</div>
+          <div class="exp-company">Yora Summit</div>
+          <div class="exp-type">AI &amp; Robotics Engineer</div>
+        </div>
+        <div>
+          <div class="exp-role">AI &amp; Robotics Engineer</div>
+          <ul class="exp-bullets">
+            <li>Engineered an <strong>AI workflow using n8n and ML models</strong> for heart disease prediction, automating data collection, model inference, and reporting.</li>
+            <li>Developed an <strong>AI-based ambulance dispatch system</strong> leveraging real-time traffic, location, and hospital capacity data to reduce emergency response times.</li>
+            <li>Applied robotics fundamentals including Physical AI, sensing, and motion control through <strong>Tech Diplomacy Academy</strong> training.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jul – Aug 2025</div>
+          <div class="exp-company">Prodigy InfoTech</div>
+          <div class="exp-type">Software Developer</div>
+        </div>
+        <div>
+          <div class="exp-role">Software Developer</div>
+          <ul class="exp-bullets">
+            <li>Built a <strong>Python-based Contact Management System</strong> with full CRUD operations, improving data retrieval speed by <span class="metric">+35%</span>.</li>
+            <li>Designed a clean, intuitive interface, enhancing user task efficiency by <span class="metric">+25%</span>.</li>
+            <li>Implemented modular, reusable code with Git version control, reducing the bug occurrence rate by <span class="metric">-20%</span> during testing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">May – Jul 2025</div>
+          <div class="exp-company">CodeAlpha</div>
+          <div class="exp-type">Web Developer</div>
+        </div>
+        <div>
+          <div class="exp-role">Web Developer</div>
+          <ul class="exp-bullets">
+            <li>Developed a full-stack <strong>Project Management Tool</strong> with authentication, project boards, and task cards, boosting collaboration efficiency by <span class="metric">+40%</span>.</li>
+            <li>Integrated <strong>real-time updates using WebSockets</strong>, reducing communication delays by <span class="metric">-30%</span>.</li>
+            <li>Applied responsive design best practices and backend optimisation, improving page load times by <span class="metric">+25%</span>.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMPACT STRIP ══ -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div><div class="impact-n">+40%</div><div class="impact-l">Collaboration Boost</div></div>
+    <div><div class="impact-n">+35%</div><div class="impact-l">OCR Accuracy Gain</div></div>
+    <div><div class="impact-n">-30%</div><div class="impact-l">Delays Reduced</div></div>
+    <div><div class="impact-n">-20%</div><div class="impact-l">Bug Rate Reduced</div></div>
+  </div>
+</div>
+
+<!-- ══ PROJECTS (light) ══ -->
+<section id="projects" class="sec sec-light">
+  <div class="sec-inner">
+    <div class="sec-label">Projects</div>
+    <h2 class="sec-h">Things I've <em>shipped.</em></h2>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-num">Project 01</div>
+          <div class="proj-title">AI Agent — Daily Productivity Assistant</div>
+          <div class="proj-tech"><span class="proj-tag">Python</span><span class="proj-tag">OpenAI API</span><span class="proj-tag">Flask</span><span class="proj-tag">React</span><span class="proj-tag">n8n</span></div>
+        </div>
+        <div class="proj-body">
+          <ul class="proj-bullets">
+            <li>AI-powered assistant that automates <strong>task prioritisation, reminders, and smart suggestions</strong> using OpenAI language models and workflow automation.</li>
+            <li>Flask backend handles secure API routing and model orchestration; React frontend delivers a clean, responsive user experience.</li>
+            <li>Modular, model-agnostic architecture allows any LLM to be swapped in — designed for personal and professional productivity at scale.</li>
+          </ul>
+        </div>
+        <a href="https://github.com/ibrahim-warsame/AI-Agent-for-Automated-Daily-Productivity-Assistant" target="_blank" class="proj-link">View on GitHub &rarr;</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-num">Project 02</div>
+          <div class="proj-title">Project Management Tool — Full Stack</div>
+          <div class="proj-tech"><span class="proj-tag">Node.js</span><span class="proj-tag">React</span><span class="proj-tag">WebSockets</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">JWT</span></div>
+        </div>
+        <div class="proj-body">
+          <ul class="proj-bullets">
+            <li>Full-stack project management platform with <strong>authentication, task boards, and real-time collaboration</strong> — boosting team efficiency by 40%.</li>
+            <li>Integrated <strong>WebSockets for live updates</strong> across team members, reducing communication delays by 30%.</li>
+            <li>Responsive design with optimised backend, improving page load times by 25% across all devices.</li>
+          </ul>
+        </div>
+        <a href="https://github.com/ibrahim-warsame/CodeAlpha_ProjectManagementTool" target="_blank" class="proj-link">View on GitHub &rarr;</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-num">Project 03</div>
+          <div class="proj-title">Contact Management System — Python CLI</div>
+          <div class="proj-tech"><span class="proj-tag">Python</span><span class="proj-tag">CLI</span><span class="proj-tag">CRUD</span><span class="proj-tag">File Storage</span></div>
+        </div>
+        <div class="proj-body">
+          <ul class="proj-bullets">
+            <li>Python CLI tool for managing contacts with <strong>persistent storage, search, update, and delete</strong> — improving data retrieval speed by 35%.</li>
+            <li>Clean, intuitive terminal interface that enhanced user task efficiency by 25%.</li>
+            <li>Modular, reusable codebase with Git version control — reduced bug occurrence by 20% during testing.</li>
+          </ul>
+        </div>
+        <a href="https://github.com/ibrahim-warsame/Contact-management-system" target="_blank" class="proj-link">View on GitHub &rarr;</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-num">Project 04</div>
+          <div class="proj-title">Mortgage Document Intelligence — OCR &amp; RAG</div>
+          <div class="proj-tech"><span class="proj-tag">Python</span><span class="proj-tag">LlamaIndex</span><span class="proj-tag">PaddleOCR</span><span class="proj-tag">FastAPI</span><span class="proj-tag">PostgreSQL</span></div>
+        </div>
+        <div class="proj-body">
+          <ul class="proj-bullets">
+            <li>End-to-end pipeline converting <strong>unstructured mortgage PDFs</strong> into structured machine-readable data using OCR classification and RAG retrieval.</li>
+            <li>Benchmarked Tesseract, PaddleOCR, and EasyOCR on complex financial documents — <strong>+35% accuracy improvement</strong> over baseline.</li>
+            <li>LlamaIndex RAG layer enables natural-language querying with optimised chunking and metadata filtering across large document datasets.</li>
+          </ul>
+        </div>
+        <a href="https://github.com/ibrahim-warsame" target="_blank" class="proj-link">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION (dark) ══ -->
+<section id="education" class="sec sec-dark">
+  <div class="sec-inner">
+    <div class="sec-label">Education</div>
+    <h2 class="sec-h">Where I <em>studied.</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">Sep 2022 – Sep 2026</div>
+        <div class="edu-deg">BSc Computer Science</div>
+        <div class="edu-school">IU International University of Applied Sciences — Berlin, Germany</div>
+        <ul class="edu-modules">
+          <li>Data Structures &amp; Algorithms</li>
+          <li>Machine Learning &amp; Artificial Intelligence</li>
+          <li>Database Modeling &amp; Systems</li>
+          <li>Computer Architecture &amp; Operating Systems</li>
+          <li>Object-Oriented Programming with Java</li>
+          <li>Statistics — Probability &amp; Descriptive</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">May 2026 – Sep 2026</div>
+        <div class="edu-deg">Software Development &amp; AI Bootcamp</div>
+        <div class="edu-school">Power Learn Project — Pan-African Tech Initiative</div>
+        <ul class="edu-modules">
+          <li>Python Programming &amp; Data Science</li>
+          <li>Web Development — HTML, CSS, JavaScript, React</li>
+          <li>Database Management — MySQL &amp; PostgreSQL</li>
+          <li>Artificial Intelligence &amp; Machine Learning</li>
+          <li>Mobile App Development</li>
+          <li>Entrepreneurship &amp; Project Management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATIONS (white) ══ -->
+<section id="certifications" class="sec sec-white">
+  <div class="sec-inner">
+    <div class="sec-label">Certifications</div>
+    <h2 class="sec-h">Credentials that <em>prove the work.</em></h2>
+    <div class="cert-grid">
+      <div class="cert-card"><div class="cert-name">Azure AI Engineer Associate</div><div class="cert-org">Microsoft</div></div>
+      <div class="cert-card"><div class="cert-name">Fundamentals of Generative AI</div><div class="cert-org">Microsoft</div></div>
+      <div class="cert-card"><div class="cert-name">Fundamental AI Concepts</div><div class="cert-org">Microsoft</div></div>
+      <div class="cert-card"><div class="cert-name">AI &amp; Robotics Hybrid Masterclass</div><div class="cert-org">YORA Summit &amp; EXPO</div></div>
+      <div class="cert-card"><div class="cert-name">Quantum Revolution: Computing Beyond Classical Limits</div><div class="cert-org">Tech Diplomacy Academy</div></div>
+      <div class="cert-card"><div class="cert-name">Engineering the Future: The Revolutionary World of Robotics</div><div class="cert-org">Tech Diplomacy Academy</div></div>
+      <div class="cert-card"><div class="cert-name">Understanding Neural Networks: The Foundation of AI</div><div class="cert-org">Tech Diplomacy Academy</div></div>
+      <div class="cert-card"><div class="cert-name">AI/ML Scholar</div><div class="cert-org">Udacity</div></div>
+      <div class="cert-card"><div class="cert-name">AI Automation Certificate</div><div class="cert-org">Dexa</div></div>
+      <div class="cert-card"><div class="cert-name">Cybersecurity Essentials</div><div class="cert-org">Cisco</div></div>
+      <div class="cert-card"><div class="cert-name">AI Safari Certificate</div><div class="cert-org">Power Learn Project</div></div>
+      <div class="cert-card"><div class="cert-name">ALX Professional Foundation</div><div class="cert-org">African Leadership Experience</div></div>
+      <div class="cert-card"><div class="cert-name">Aspire Leaders Program</div><div class="cert-org">Aspire Institute</div></div>
+      <div class="cert-card"><div class="cert-name">Learn How to Learn</div><div class="cert-org">Deep Teaching Solutions</div></div>
+      <div class="cert-card"><div class="cert-name">Tips to Becoming a Better Leader</div><div class="cert-org">LinkedIn</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AWARDS (dark) ══ -->
+<section id="awards" class="sec sec-dark">
+  <div class="sec-inner">
+    <div class="sec-label">Awards &amp; Recognition</div>
+    <h2 class="sec-h">Recognised for <em>real results.</em></h2>
+    <div class="gwr-card">
+      <div class="gwr-label">GWR</div>
+      <div>
+        <div class="gwr-h">Guinness World Record Holder</div>
+        <div class="gwr-p">
+          Awarded for participation in the <strong>Microsoft AI Learning Event</strong> —
+          a globally record-breaking gathering focused on artificial intelligence education
+          and community learning, setting a new worldwide standard for AI community engagement.
+        </div>
+      </div>
+    </div>
+    <div class="awards-list">
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <div>
+          <div class="award-title">Team Lead — Web Application Development</div>
+          <div class="award-org">Led a cross-functional team to design and deploy production web applications, coordinating tasks and mentoring junior developers</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <div>
+          <div class="award-title">Google Developer Groups — Community Contributor</div>
+          <div class="award-org">Active contributor to the GDG Nairobi developer community through workshops, peer mentoring, and knowledge-sharing sessions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VOLUNTEERING (light) ══ -->
+<section id="volunteering" class="sec sec-light">
+  <div class="sec-inner">
+    <div class="sec-label">Volunteering</div>
+    <h2 class="sec-h">Giving back to the <em>community.</em></h2>
+    <div class="vol-grid">
+
+      <div class="vol-card">
+        <div class="vol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="vol-body">
+          <div class="vol-org">DeepLearning.AI</div>
+          <div class="vol-role">PIE &amp; AI Ambassador</div>
+          <p class="vol-desc">
+            Serving as a <strong>PIE (Pioneering Intelligence Education) Ambassador</strong> for DeepLearning.AI — promoting AI literacy, sharing learning resources, and helping community members access world-class AI education. Represent DeepLearning.AI's mission to make AI accessible to everyone, everywhere.
+          </p>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vol-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="vol-body">
+          <div class="vol-org">Google Developer Groups</div>
+          <div class="vol-role">Google Developer &amp; Community Contributor</div>
+          <p class="vol-desc">
+            Active contributor and developer within the <strong>Google Developer Groups (GDG) Nairobi</strong> community. Participates in workshops, hackathons, and peer mentoring sessions — helping other developers grow their skills with Google technologies and fostering a culture of open collaboration.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT (light) ══ -->
+<section id="contact" class="sec sec-light">
+  <div class="sec-inner">
+    <div class="sec-label">Contact</div>
+    <h2 class="sec-h">Let's <em>work together.</em></h2>
+    <div class="contact-wrap">
+      <div>
+        <p class="contact-intro">
+          Open to internships, full-time roles, and freelance projects in AI engineering
+          and software development. If you have an interesting opportunity, let's talk.
+        </p>
+        <div class="contact-links">
+          <a href="tel:+254722147385" class="contact-link">
+            <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div><span>+254 722 147 385</span><span class="cl-lbl">Phone / WhatsApp</span></div>
+          </a>
+          <a href="mailto:ibrahimali.wr@gmail.com" class="contact-link">
+            <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div><span>ibrahimali.wr@gmail.com</span><span class="cl-lbl">Email</span></div>
+          </a>
+          <a href="https://github.com/ibrahim-warsame" target="_blank" class="contact-link">
+            <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.7.115 2.5.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></div>
+            <div><span>github.com/ibrahim-warsame</span><span class="cl-lbl">GitHub</span></div>
+          </a>
+          <a href="https://linkedin.com/in/ibrahim-warsame" target="_blank" class="contact-link">
+            <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <div><span>linkedin.com/in/ibrahim-warsame</span><span class="cl-lbl">LinkedIn</span></div>
+          </a>
+          <a href="https://leetcode.com/u/ibrahim-warsame/" target="_blank" class="contact-link">
+            <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.396c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.396a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg></div>
+            <div><span>leetcode.com/u/ibrahim-warsame</span><span class="cl-lbl">LeetCode</span></div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <form class="cform" id="contact-form">
+          <input type="text" id="cf-name" placeholder="Your Name" required/>
+          <input type="email" id="cf-email" placeholder="Your Email" required/>
+          <input type="text" id="cf-subject" placeholder="Subject"/>
+          <textarea id="cf-message" placeholder="Your message..." required></textarea>
+          <button type="submit" id="cf-btn">Send Message</button>
+          <div id="cf-status" style="font-size:.85rem;margin-top:.5rem;display:none"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">Ibrahim<span>.</span></div>
+  <div class="footer-copy">2025 Ibrahim Warsame — AI Engineer &amp; Software Developer</div>
+  <div class="footer-links">
+    <a href="mailto:ibrahimali.wr@gmail.com">Email</a>
+    <a href="https://github.com/ibrahim-warsame" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/ibrahim-warsame" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+// ── Scroll progress bar ──
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  prog.style.width = (s.scrollTop / (s.scrollHeight - s.clientHeight) * 100) + '%';
+});
+
+// ── Active nav link ──
+const navLinks = document.querySelectorAll('.nav-links a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting)
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+
+// ── Contact form → Supabase + email notification ──
+const SUPA_URL  = 'https://nuphlibbtmjnyfvisscp.supabase.co';
+const SUPA_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51cGhsaWJidG1qbnlmdmlzc2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMTcyMjQsImV4cCI6MjA5NDU5MzIyNH0.-0OSd9zW4WaPAGEB9wFA-c-sgpWpnuTHFP1MjcojrAo';
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn    = document.getElementById('cf-btn');
+  const status = document.getElementById('cf-status');
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  status.style.display = 'none';
+
+  try {
+    // 1 — Save to Supabase
+    const res = await fetch(`${SUPA_URL}/rest/v1/contact_messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ name, email, subject, message })
+    });
+    if (!res.ok) throw new Error('Supabase error');
+
+    // 2 — Email notification via FormSubmit (activates on first send)
+    await fetch('https://formsubmit.co/ajax/ibrahimali.wr@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `Portfolio message from ${name}: ${subject || '(no subject)'}`,
+        name, email, subject, message
+      })
+    }).catch(() => {}); // don't block if email fails
+
+    btn.textContent = '✓ Message Sent!';
+    status.style.cssText = 'display:block;color:#2d8a4e;font-size:.85rem;margin-top:.5rem';
+    status.textContent = 'Thanks! I\'ll get back to you soon.';
+    this.reset();
+    setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; status.style.display='none'; }, 4000);
+  } catch(err) {
+    btn.textContent = 'Error — Try Again';
+    btn.disabled = false;
+    status.style.cssText = 'display:block;color:#c0392b;font-size:.85rem;margin-top:.5rem';
+    status.textContent = 'Something went wrong. Please email directly: ibrahimali.wr@gmail.com';
+  }
+});
+</script>
+</body>
+</html>

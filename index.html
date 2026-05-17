@@ -200,14 +200,9 @@ nav{
   50%{box-shadow:0 0 0 5px rgba(200,146,42,.18)}
 }
 
-/* Section divider gradient */
-.sec-dark + .sec-light::before,
-.sec-light + .sec-dark::before,
-.sec-white + .sec-dark::before{
-  content:'';display:block;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin-bottom:-3px;
-}
+/* Section divider — thin top border accent */
+.sec-dark{border-top:1px solid rgba(200,146,42,.08)}
+.sec-light{border-top:1px solid rgba(200,146,42,.07)}
 
 /* ══════════════════════════
    VOLUNTEERING (kept for future use)

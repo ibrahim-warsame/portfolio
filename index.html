@@ -130,7 +130,87 @@ nav{
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
 /* ══════════════════════════
-   VOLUNTEERING
+   EXTRA VISUAL POLISH
+══════════════════════════ */
+
+/* Animated gradient border on profile photo */
+.about-photo{
+  animation:photoBorder 6s linear infinite;
+}
+@keyframes photoBorder{
+  0%,100%{border-color:rgba(200,146,42,.35)}
+  50%{border-color:rgba(232,171,58,.8)}
+}
+
+/* Glow pulse on GWR card */
+.gwr-card{
+  animation:gwrGlow 4s ease-in-out infinite;
+}
+@keyframes gwrGlow{
+  0%,100%{box-shadow:0 4px 32px rgba(200,146,42,.12)}
+  50%{box-shadow:0 8px 48px rgba(200,146,42,.28)}
+}
+
+/* Card hover lift for cert/project cards */
+.cert-card,.proj-card,.exp-card{
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.cert-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13)}
+.proj-card:hover{transform:translateY(-3px)}
+.exp-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
+
+/* Gradient underline on section headings */
+.sec-h em{
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:italic;
+}
+/* Keep dark section sec-h em as gradient too */
+.sec-dark .sec-h em{
+  background:linear-gradient(90deg,var(--gold),#f0c060);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* Hero h1 italic gradient */
+.hero-h1 em{
+  background:linear-gradient(110deg,#e8ab3a 0%,#f8cc6a 50%,#c8922a 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
+}
+
+/* Skill bar animated fill on load */
+.bar-fill{
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* Smooth underline on nav links */
+.nav-links a::after{
+  content:'';display:block;height:1.5px;
+  background:var(--gold2);transform:scaleX(0);transform-origin:left;
+  transition:transform .25s ease;margin-top:1px;border-radius:2px;
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+
+/* Award dot pulse */
+.award-dot{
+  animation:dotPulse 2.8s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(200,146,42,.0)}
+  50%{box-shadow:0 0 0 5px rgba(200,146,42,.18)}
+}
+
+/* Section divider gradient */
+.sec-dark + .sec-light::before,
+.sec-light + .sec-dark::before,
+.sec-white + .sec-dark::before{
+  content:'';display:block;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin-bottom:-3px;
+}
+
+/* ══════════════════════════
+   VOLUNTEERING (kept for future use)
 ══════════════════════════ */
 .vol-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .vol-card{
@@ -413,7 +493,6 @@ footer{
     <li><a href="#education">Education</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#awards">Awards</a></li>
-    <li><a href="#volunteering">Volunteering</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
@@ -820,43 +899,13 @@ footer{
           <div class="award-org">Active contributor to the GDG Nairobi developer community through workshops, peer mentoring, and knowledge-sharing sessions</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ VOLUNTEERING (light) ══ -->
-<section id="volunteering" class="sec sec-light">
-  <div class="sec-inner">
-    <div class="sec-label">Volunteering</div>
-    <h2 class="sec-h">Giving back to the <em>community.</em></h2>
-    <div class="vol-grid">
-
-      <div class="vol-card">
-        <div class="vol-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="vol-body">
-          <div class="vol-org">DeepLearning.AI</div>
-          <div class="vol-role">PIE &amp; AI Ambassador</div>
-          <p class="vol-desc">
-            Serving as a <strong>PIE (Pioneering Intelligence Education) Ambassador</strong> for DeepLearning.AI — promoting AI literacy, sharing learning resources, and helping community members access world-class AI education. Represent DeepLearning.AI's mission to make AI accessible to everyone, everywhere.
-          </p>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <div>
+          <div class="award-title">DeepLearning.AI — PIE &amp; AI Ambassador</div>
+          <div class="award-org">Pioneering Intelligence Education Ambassador — promoting AI literacy and helping community members worldwide access world-class AI education through DeepLearning.AI's platform</div>
         </div>
       </div>
-
-      <div class="vol-card">
-        <div class="vol-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        </div>
-        <div class="vol-body">
-          <div class="vol-org">Google Developer Groups</div>
-          <div class="vol-role">Google Developer &amp; Community Contributor</div>
-          <p class="vol-desc">
-            Active contributor and developer within the <strong>Google Developer Groups (GDG) Nairobi</strong> community. Participates in workshops, hackathons, and peer mentoring sessions — helping other developers grow their skills with Google technologies and fostering a culture of open collaboration.
-          </p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
